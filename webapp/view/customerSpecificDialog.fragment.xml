@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="customerSpecificDialog" 
+        title="{i18n>xtit.customerSpecificDialog}" contentWidth="527px" verticalScrolling="false" contentHeight="auto" class="sapUiContentPadding">
+        <content>
+<!--            <Text id="questionText" text="This service is meant for Customer Specific requests issued by presales. \n \n
+            We can accept non Customer Specific requests only on exception. \n \n
+	If you need support for generic content, please engage with SLS (SAP Language Services) by clicking here. \n \n
+Thank you for your understanding. \n \n
+Are you sure you want to open a non Customer Specific request ?
+" />-->
+<!--<FormattedText htmlText="{appProperties>/custSpecificText}"/>-->
+<core:HTML content="&#x3C;span&#x3E;This service is meant for Customer Specific requests issued by presales. &#x3C;/span&#x3E;&#x3C;p&#x3E; We can accept non Customer Specific requests only on exception.
+					&#x3C;/p&#x3E;&#x3C;p&#x3E;If you need support for generic content, please engage with SLS (SAP Language Services) by clicking 
+					&#x3C;a class=&#x27;custSpecificExtLink&#x27; target=&#x27;_blank&#x27; style=&#x27;font-size: 16px;font-weight: bold;margin-top: 2px;&#x27;&#x3E;here&#x3C;/a&#x3E; .&#x3C;/p&#x3E;
+					&#x3C;p&#x3E;Thank you for your understanding.&#x3C;/p&#x3E;&#x3C;p&#x3E;Are you sure you want to open a non Customer Specific request ?&#x3C;/p&#x3E;">
+			</core:HTML>
+        </content>
+        <buttons>
+            <Button id="resumeButton" text="{i18n>xbut.customerSpecificAccept}" press="onCustomerSpecificAccept" />
+            <Button id="discardButton" text="{i18n>xbut.customerSpecificDeny}" press="onCustomerSpecificReject" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

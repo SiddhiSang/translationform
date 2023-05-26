@@ -151,12 +151,12 @@
 				<!-- <Label id="oppLabel" text="{/#Yc_Mtr_T_MainType/OpportunityId/@sap:label}" required="true"
 					visible="{= ${activitysetModel>/isChecked} === true &amp;&amp; ${default>/ActivitySetId} === ''}"/> -->
 				<Label id="oppLabel" text="Opportunity No" required="true"
-					visible="true"/>
+					visible="false"/>
 				<!-- <core:ComponentContainer id="pcOpportunityInputComponent" name="com.presalescentral.opportunity" propagateModel="true"
 					visible="{= ${activitysetModel>/isChecked} === true &amp;&amp; ${default>/ActivitySetId} === ''}"
 					componentCreated="onOpportunityComponentLoaded"></core:ComponentContainer> -->
-				<Input id="pcOpportunityInputComponent" showValueHelp="true"
-					visible="{= ${activitysetModel>/isChecked} === true &amp;&amp; ${default>/ActivitySetId} === ''}"
+				<Input id="pcOpportunityInputComponent" showValueHelp="true" placeholder="Select Opportunity"
+					visible="false"
 					/>
 
 				<Label id="custNameLabel" text="Customer Name" required="true"/>
@@ -309,9 +309,13 @@
 			<f:content>
 				<core:Title id="_IDGenTitle7" text="{i18n>xtit.Attachments}" level="H2"/>
 				<Label id="_IDGenLabel4" text="{i18n>xtit.DocumentType}"></Label>
-				<Select id="toolsDocType" width="100%" change="onToolsDocChange" forceSelection="false" items="{/Yc_Mtr_M_Doc_Type}">
+				<!-- <Select id="toolsDocType" width="100%" change="onToolsDocChange" forceSelection="false" items="{/Yc_Mtr_M_Doc_Type}"> -->
+				<Select id="toolsDocType" width="100%" change="onToolsDocChange" forceSelection="false">
 					<items>
-						<core:Item id="_IDGenItem13" text="{doctype_desc}" key="{doctype_id}"/>
+						<!-- <core:Item id="_IDGenItem13" text="{doctype_desc}" key="{doctype_id}"/> -->
+						<core:Item  text="NONE" key="0000"/>
+						<core:Item text="LINK" key="0001"/>
+						<core:Item text="ATTACHMENT" key="0019"/>
 					</items>
 				</Select>
 				<Label id="attachTypeLbl" text="{i18n>xtit.AttachType}"></Label>
@@ -322,7 +326,8 @@
 					</items>
 				</ComboBox>
 				<core:Title id="_IDGenTitle8" text=""/>
-				<Label text="{/#Yc_Mtr_T_FileType/FileName/@sap:label}" id="idLinkNameLbl" visible="false" required="true"></Label>
+				<!-- <Label text="{/#Yc_Mtr_T_FileType/FileName/@sap:label}" id="idLinkNameLbl" visible="false" required="true"></Label> -->
+				<Label text="Name" id="idLinkNameLbl" visible="false" required="true"></Label>
 				<Input id="linkName" visible="false" change="handleLinkName" valueStateText="{i18n>xtit.linkNameValueStateText}"
 					placeholder="{i18n>xtit.linkNamePlaceHolder}"
 					maxLength="{path:'/#Yc_Mtr_T_FileType/FileName/@maxLength',formatter : '.formatter.toInteger'}"></Input>
