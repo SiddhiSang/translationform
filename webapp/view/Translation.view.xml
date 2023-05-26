@@ -8,7 +8,8 @@
 			<Toolbar id="_IDGenToolbar1">
 				<!-- <libCtrl:QuickNavMenu id="_IDGenQuickNavMenu1" text="{i18n>Melody.Quick.Nav}"></libCtrl:QuickNavMenu> -->
 				<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
-				<Title id="_IDGenTitle1" text="{ path: 'appProperties>/isEditMode', formatter: '.formatter.formatEditTitle' }" level="H3"/>
+				<Title id="_IDGenTitle1" text="Create Translation" level="H3"/>
+				<!-- <Title id="_IDGenTitle1" text="{ path: 'appProperties>/isEditMode', formatter: '.formatter.formatEditTitle' }" level="H3"/> -->
 				<ToolbarSpacer id="_IDGenToolbarSpacer2"/>
 				<Label id="_IDGenLabel1" text=""/>
 			</Toolbar>
@@ -21,7 +22,8 @@
 					visible="true"/>
 				<Input id="translationIdInput" width="100%" visible="{= ${appProperties>/isEditMode}}" value="{default>/TranslationId}"
 					change="onInputChange" editable="false" maxLength="{path:'/#Yc_Mtr_T_MainType/TranslationId/@maxLength',formatter : '.formatter.toInteger'}"></Input>
-				<Label id="requesterLabel" text="{/#Yc_Mtr_T_MainType/Requester/@sap:label}" required="true" visible="true"/>
+				<!-- <Label id="requesterLabel" text="{/#Yc_Mtr_T_MainType/Requester/@sap:label}" required="true" visible="true"/> -->
+				<Label id="requesterLabel" text="Requestor" required="true" visible="true"/>
 				<Input id="requesterInput" valueHelpOnly="true" showSuggestion="true" showValueHelp="true" valueHelpRequest="onPeopleSearchValHelp"
 					value="{default>/RequesterName}" visible="{= !${appProperties>/isEditMode}}" valueStateText="{i18n>xtit.requestorValueStateText}"
 					placeholder="{i18n>xtit.requestorPlaceHolderText}"
@@ -35,10 +37,12 @@
 				<DatePicker id="creationDateDP" valueFormat="yyyy-MM-dd" displayFormat="long" change="onInputChange" editable="false"
 					valueStateText="{i18n>xtit.creationDateValueStateText}" dateValue="{default>/CreationDate}" visible="{= ${appProperties>/isEditMode}}"
 					placeholder="{i18n>Enter.Date}"/>
-				<Label id="requestDateLabel" text="{/#Yc_Mtr_T_MainType/RequestDeliveryDate/@sap:label}" required="true"/>
+				<Label id="requestDateLabel" text="Delivery Date" required="true"/>
+				<!-- <Label id="requestDateLabel" text="{/#Yc_Mtr_T_MainType/RequestDeliveryDate/@sap:label}" required="true"/> -->
 				<DatePicker id="requestDateDP" valueFormat="yyyy-MM-dd" displayFormat="long" change="onRequestDateChange"
 					dateValue="{default>/RequestDeliveryDate}" valueStateText="{i18n>xtit.requestDateDateValueStateText}" placeholder="{i18n>Enter.Date}"/>
-				<Label id="regionLabel" text="{/#Yc_Mtr_M_CountryType/RegionId/@sap:label}" required="true"/>
+				<Label id="regionLabel" text="Region" required="true"/>
+				<!-- <Label id="regionLabel" text="{/#Yc_Mtr_M_CountryType/RegionId/@sap:label}" required="true"/> -->
 				<ComboBox id="regionBox" width="100%" items="{path: '/Yc_Mtr_M_Region' , sorter:{path:'RegionDescription', descending: false}}"
 					selectedKey="{default>/RegionId}" selectionChange="onRegionChange" placeholder="{i18n>xtit.regionCbBoxPlaceHoldr}"
 					valueStateText="{i18n>xtit.regionValueStateText}">
@@ -46,7 +50,8 @@
 						<core:Item id="_IDGenItem1" text="{RegionDescription}" key="{RegionId}"/>
 					</items>
 				</ComboBox>
-				<Label id="muLabel" text="{/#Yc_Mtr_M_MuType/MuId/@sap:label}" required="true"/>
+				<Label id="muLabel" text="Market Unit" required="true"/>
+				<!-- <Label id="muLabel" text="{/#Yc_Mtr_M_MuType/MuId/@sap:label}" required="true"/> -->
 				<ComboBox id="muBox" width="100%" items="{/Yc_Mtr_M_Mu}" selectedKey="{default>/MuId}" selectionChange="onMUChange"
 					placeholder="{i18n>xtit.marketUnitCbBoxPlaceHoldr}"
 					enabled="{= ${default>/RegionId} !== null &amp;&amp; ${default>/RegionId} !== '' &amp;&amp; ${default>/RegionId} !== undefined }"
@@ -55,7 +60,8 @@
 						<core:Item id="_IDGenItem2" text="{MuDescription}" key="{MuId}"/>
 					</items>
 				</ComboBox>
-				<Label id="countryLabel" text="{/#Yc_Mtr_M_CountryType/CountryId/@sap:label}" required="true"/>
+				<Label id="countryLabel" text="Country" required="true"/>
+				<!-- <Label id="countryLabel" text="{/#Yc_Mtr_M_CountryType/CountryId/@sap:label}" required="true"/> -->
 				<!--	<ComboBox id="countryBox" width="100%" items="{/Yc_Mtr_M_Country}" selectedKey="{CountryId}" selectionChange="onCountryChange1"-->
 				<ComboBox id="countryBox" width="100%" items="{ path: '/Yc_Mtr_M_Country', sorter:{path:'CountryDescription', descending: false}}"
 					selectedKey="{default>/CountryId}" selectionChange="onCountryChange" placeholder="{i18n>xtit.countryCbBoxPlaceHoldr}"
@@ -72,7 +78,8 @@
 						<core:Item id="_IDGenItem4" key="{DaId}" text="{DaName}"/>
 					</items>
 				</ComboBox>
-				<Label id="assetLabel" text="{/#Yc_Mtr_M_Asset_TType/AssetId/@sap:label}" required="true"/>
+				<Label id="assetLabel" text="Asset" required="true"/>
+				<!-- <Label id="assetLabel" text="{/#Yc_Mtr_M_Asset_TType/AssetId/@sap:label}" required="true"/> -->
 				<ComboBox id="assetBox" width="100%" items="{path:'/Yc_Mtr_M_Asset_T', sorter: { path: 'AssetDesciption', ascending: true}}"
 					selectedKey="{default>/AssetId}" selectionChange="onAssetChange" placeholder="{i18n>xtit.assetCbBoxPlaceHoldr}"
 					valueStateText="{i18n>xtit.assetValueStateText}">
@@ -80,11 +87,13 @@
 						<core:Item id="_IDGenItem5" key="{AssetId}" text="{AssetDesciption}"/>
 					</items>
 				</ComboBox>
-				<Label id="volumeLabel" text="{/#Yc_Mtr_T_MainType/Volume/@sap:label}"/>
+				<Label id="volumeLabel" text="Volume"/>
+				<!-- <Label id="volumeLabel" text="{/#Yc_Mtr_T_MainType/Volume/@sap:label}"/> -->
 				<Input id="volumeInput" width="100%" value="{default>/Volume}" change="onInputChange"
 					liveChange="HandleCheckNumber" valueStateText="{i18n>xtit.volumeValueStateText}" placeholder="{i18n>xtit.volumeinputPlaceHolder}"
 					maxLength="{path:'/#Yc_Mtr_T_MainType/Volume/@maxLength',formatter : '.formatter.toInteger'}"></Input>
-				<Label id="statusLabel" text="{/#Yc_Mtr_M_StatusType/StatusId/@sap:label}"  required="true"/>
+				<Label id="statusLabel" text="Status"  required="true"/>
+				<!-- <Label id="statusLabel" text="{/#Yc_Mtr_M_StatusType/StatusId/@sap:label}"  required="true"/> -->
 				<ComboBox id="statusBox" width="100%" items="{/Yc_Mtr_M_Status}" selectedKey="{default>/StatusId}" selectionChange="onStatusChange"
 					placeholder="{i18n>xtit.statusCbBoxPlaceHolder}" valueStateText="{i18n>xtit.statusValueStateText}"
 					>
@@ -92,8 +101,10 @@
 						<core:Item id="_IDGenItem6" text="{StatusDescription}" key="{StatusId}"/>
 					</items>
 				</ComboBox>
-				<Label id="statusReasonLabel" text="{/#Yc_Mtr_M_StatusrType/StatusReasonId/@sap:label}" required="true"
+				<Label id="statusReasonLabel" text="Status Reason" required="true"
 				/>
+				<!-- <Label id="statusReasonLabel" text="{/#Yc_Mtr_M_StatusrType/StatusReasonId/@sap:label}" required="true"
+				/> -->
 				<ComboBox id="statusReasonBox" width="100%" items="{/Yc_Mtr_M_Statusr}" selectedKey="{default>/StatusReasonId}"
 					selectionChange="onInputChange" placeholder="{i18n>xtit.statusReasonCbBoxPlaceHolder}"
 					valueStateText="{i18n>xtit.statusReasonValueStateText}">
@@ -102,7 +113,8 @@
 					</items>
 				</ComboBox>
 				<core:Title id="_IDGenTitle3" text=""/>
-				<Label id="custSpecLabel" text="{/#Yc_Mtr_T_MainType/CustomerSpecific/@sap:label}" required="true"/>
+				<Label id="custSpecLabel" text="Customer Specific" required="true"/>
+				<!-- <Label id="custSpecLabel" text="{/#Yc_Mtr_T_MainType/CustomerSpecific/@sap:label}" required="true"/> -->
 				<RadioButtonGroup id="custSpecRbGrp" columns="2" selectedIndex="-1" select="onCustomerSpecificChange">
 					<buttons>
 						<RadioButton id="_IDGenRadioButton1" text="{i18n>xbut.customerSpecificAccept}"></RadioButton>
@@ -113,8 +125,10 @@
 				<Label id="_IDGenLabel2"></Label>
 				<CheckBox id="crmOpportunityChkBx" select="onCrmOppChkBxSelect"
 					selected="{= ${activitysetModel>/isChecked} === true &amp;&amp; ${default>/ActivitySetId} === ''}" text="{i18n>Associate.With.Opp}"></CheckBox>
-				<Label text="{/#Yc_Mtr_T_Main/ActivitySetId/@sap:label}" tooltip="{/#Yc_Mtr_T_Main/ActivitySetId/@sap:label}"
-					visible="{= ${activitysetModel>/isChecked} === false || ${default>/ActivitySetId} !== ''}" id="actSetLbl"></Label>
+				<Label text="Title" tooltip="{/#Yc_Mtr_T_Main/ActivitySetId/@sap:label}"
+					visible="true" id="actSetLbl"></Label>
+				<!-- <Label text="{/#Yc_Mtr_T_Main/ActivitySetId/@sap:label}" tooltip="{/#Yc_Mtr_T_Main/ActivitySetId/@sap:label}"
+					visible="{= ${activitysetModel>/isChecked} === false || ${default>/ActivitySetId} !== ''}" id="actSetLbl"></Label> -->
 				<VBox id="actSetCont" visible="{= ${activitysetModel>/isChecked} === false || ${default>/ActivitySetId} !== ''}">
 					<HBox id="_IDGenHBox1" class="switchAlignment">
 						<Input value="{activitysetModel>/Title}" placeholder="{i18n>xtit.actSetPlaceholderTxt}" valueStateText="Title" showSuggestion="true"
@@ -134,12 +148,19 @@
 					</HBox>
 					<Text text="{i18n>xtit.archiveActSetWarning}" class="actsetWarning" visible="false" id="archivedActSetWarning"></Text>
 				</VBox>
-				<Label id="oppLabel" text="{/#Yc_Mtr_T_MainType/OpportunityId/@sap:label}" required="true"
-					visible="{= ${activitysetModel>/isChecked} === true &amp;&amp; ${default>/ActivitySetId} === ''}"/>
+				<!-- <Label id="oppLabel" text="{/#Yc_Mtr_T_MainType/OpportunityId/@sap:label}" required="true"
+					visible="{= ${activitysetModel>/isChecked} === true &amp;&amp; ${default>/ActivitySetId} === ''}"/> -->
+				<Label id="oppLabel" text="Opportunity No" required="true"
+					visible="true"/>
 				<!-- <core:ComponentContainer id="pcOpportunityInputComponent" name="com.presalescentral.opportunity" propagateModel="true"
 					visible="{= ${activitysetModel>/isChecked} === true &amp;&amp; ${default>/ActivitySetId} === ''}"
 					componentCreated="onOpportunityComponentLoaded"></core:ComponentContainer> -->
-				<Label id="custNameLabel" text="{/#Yc_Mtr_T_MainType/Customer/@sap:label}" required="true"/>
+				<Input id="pcOpportunityInputComponent" showValueHelp="true"
+					visible="{= ${activitysetModel>/isChecked} === true &amp;&amp; ${default>/ActivitySetId} === ''}"
+					/>
+
+				<Label id="custNameLabel" text="Customer Name" required="true"/>
+				<!-- <Label id="custNameLabel" text="{/#Yc_Mtr_T_MainType/Customer/@sap:label}" required="true"/> -->
 				<!--value="{Customer}"-->
 				<Input id="custNameInput" width="100%" value="{opportunityModel>/selectedOpportunity/ACCOUNT_NAME}" change="onCustomerInputChange"
 					liveChange="onInputChange" valueStateText="{i18n>xtit.customerNameValueStateText}" enabled="false"
@@ -156,7 +177,8 @@
 						<core:Item key="0002" text="No"/>
 					</items>
 				</ComboBox>-->
-				<Label id="sourceLangLabel" text="{/#Yc_Mtr_T_MainType/SourceLanguage/@sap:label}" required="true"/>
+				<Label id="sourceLangLabel" text="Source Language" required="true"/>
+				<!-- <Label id="sourceLangLabel" text="{/#Yc_Mtr_T_MainType/SourceLanguage/@sap:label}" required="true"/> -->
 				<ComboBox id="sourceLangBox" width="100%" items="{path:'/Yc_Mtr_M_Lang', sorter:{path:'LanguageDescription', descending: false}}"
 					selectedKey="{default>/SourceLanguage}" selectionChange="onSrcLangChange" placeholder="{i18n>xtit.sourcingLangcbBoxPlaceHolder}"
 					valueStateText="{i18n>xtit.sourceLangValueStateText}">
@@ -164,7 +186,8 @@
 						<core:Item id="_IDGenItem9" key="{LanguageId}" text="{LanguageDescription}"/>
 					</items>
 				</ComboBox>
-				<Label id="targetLangLabel" text="{/#Yc_Mtr_T_MainType/TargetLanguage/@sap:label}" required="true"/>
+				<Label id="targetLangLabel" text="Trarget Language" required="true"/>
+				<!-- <Label id="targetLangLabel" text="{/#Yc_Mtr_T_MainType/TargetLanguage/@sap:label}" required="true"/> -->
 				<ComboBox id="targetLangBox" width="100%" items="{path: '/Yc_Mtr_M_Lang', sorter:{path:'LanguageDescription', descending: false}}"
 					selectedKey="{default>/TargetLanguage}" selectionChange="onTargetLangChange" placeholder="{i18n>xtit.targetLangcbBoxPlaceHolder}"
 					valueStateText="{i18n>xtit.targetLangValueStateText}">
@@ -172,7 +195,8 @@
 						<core:Item id="_IDGenItem10" key="{LanguageId}" text="{LanguageDescription}"/>
 					</items>
 				</ComboBox>
-				<Label id="usabilityLabel" text="{/#Yc_Mtr_M_UsabilityType/UsabilityId/@sap:label}" required="true"/>
+				<Label id="usabilityLabel" text="Usability" required="true"/>
+				<!-- <Label id="usabilityLabel" text="{/#Yc_Mtr_M_UsabilityType/UsabilityId/@sap:label}" required="true"/> -->
 				<ComboBox id="usabilityBox" width="100%" items="{/Yc_Mtr_M_Usability}" selectedKey="{default>/Usability}" selectionChange="onInputChange"
 					placeholder="{i18n>xtit.usabiltyCbBoxPlaceHolder}" valueStateText="{i18n>xtit.usabilityValueStateText}">
 					<items>
@@ -217,7 +241,8 @@
 			emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2" class="editableForm" visible="true">
 			<f:content>
 				<core:Title id="_IDGenTitle5" text="{i18n>xtit.resources}" level="H2"/>
-				<Label id="requesterEditLabel" text="{/#Yc_Mtr_T_MainType/Requester/@sap:label}" required="true"/>
+				<Label id="requesterEditLabel" text="Requestor" required="true"/>
+				<!-- <Label id="requesterEditLabel" text="{/#Yc_Mtr_T_MainType/Requester/@sap:label}" required="true"/> -->
 				<!--editable property cahnged based on the AuthFlag -->
 				<Input id="requesterEditInput" valueHelpOnly="true" showSuggestion="true" showValueHelp="true" valueHelpRequest="onPeopleSearchValHelp"
 					value="{default>/RequesterName}" change="onPeopleSearch"
@@ -227,7 +252,8 @@
 						<core:CustomData key="key" value="Requester"></core:CustomData>
 					</customData>
 				</Input>
-				<Label id="countryChampLabel" text="{/#Yc_Mtr_T_MainType/CountryChampion/@sap:label}"/>
+				<Label id="countryChampLabel" text="Country Champion"/>
+				<!-- <Label id="countryChampLabel" text="{/#Yc_Mtr_T_MainType/CountryChampion/@sap:label}"/> -->
 				<Input id="countryChampInput" valueHelpOnly="true" showSuggestion="true" showValueHelp="true" valueHelpRequest="onPeopleSearchValHelp"
 					value="{default>/CountryChampionName}" placeholder="{i18n>xtit.countryChampionPlaceHolder}"
 					valueStateText="{i18n>xtit.countryChampValueStateText}">
@@ -237,7 +263,8 @@
 				</Input>
 				<!--	editable="{= ${CountryChampionName} ? false :true }"-->
 				<core:Title id="hideSpaceForThisInPhone"/>
-				<Label id="reqOwnerLabel" text="{/#Yc_Mtr_T_MainType/RequestOwner/@sap:label}" required="true"/>
+				<Label id="reqOwnerLabel" text="Request Owner" required="true"/>
+				<!-- <Label id="reqOwnerLabel" text="{/#Yc_Mtr_T_MainType/RequestOwner/@sap:label}" required="true"/> -->
 				<Input id="reqOwnerInput" valueHelpOnly="true" showSuggestion="true" showValueHelp="true" valueHelpRequest="onPeopleSearchValHelp"
 					editable="{= ${default>/RequestOwner} === null || ${default>/RequestOwner} === '' || ${default>/RequestOwner} === undefined }"
 					placeholder="{i18n>xtit.requestOwnerPlaceHolder}" value="{default>/RequestOwnerName}"
@@ -247,10 +274,12 @@
 					</customData>
 				</Input>
 				<!--Added on 12-7-2017-->
-				<Label id="dealAdvLabelPresent" text="{/#Yc_Mtr_T_MainType/DealAdvisor/@sap:label}"/>
+				<Label id="dealAdvLabelPresent" text="Deal Advisor"/>
+				<!-- <Label id="dealAdvLabelPresent" text="{/#Yc_Mtr_T_MainType/DealAdvisor/@sap:label}"/> -->
 				<Input id="dealAdvCbPresent" width="100%" value="{default>/DealAdvisorName}" enabled="false"/>
 				<!--**Added on 12-7-2017**-->
-				<Label id="dealAdvLabel" text="{/#Yc_Mtr_T_MainType/DealAdvisor/@sap:label}"/>
+				<Label id="dealAdvLabel" text="Deal Advisor"/>
+				<!-- <Label id="dealAdvLabel" text="{/#Yc_Mtr_T_MainType/DealAdvisor/@sap:label}"/> -->
 				<ComboBox id="dealAdvCb" width="100%" items="{/Yc_Mtr_M_Da}" selectedKey="{default>/DealAdvisor}"
 					placeholder="{i18n>xtit.dealAdvisorPlaceHolder}" valueStateText="{i18n>xtit.dealAdvisorValueStateText}">
 					<items>
